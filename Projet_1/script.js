@@ -1,6 +1,8 @@
 
 const cartes = document.querySelectorAll(".carte");
+const section = document.querySelector("section");
 const paragraphe = document.querySelector("#selection");
+const position = document.querySelector("#position");
 
 const zoneCouleur = document.querySelector("#zone-couleur");
 const panneau = document.querySelector("#panneau");
@@ -14,7 +16,7 @@ let numeroNotification = 0;
 
 // Mettre à jour le compteur
 function actualiserCompteur() {
-    compteur.textContent = `Sélections présentes : ${conteneur.children.length}`;
+    compteur.textContent = `Joueurs présents : ${conteneur.children.length}`;
 }
 
 // Animer l'arrivée d'une sélection
@@ -59,7 +61,7 @@ function creerNotification(joueur) {
     notification.dataset.joueur = joueur;
 
     const texte = document.createElement("p");
-    texte.textContent = `Sélection n° ${numeroNotification} : ${joueur}`;
+    texte.textContent = `Top n° ${numeroNotification} : ${joueur}`;
 
     // Bouton modifier
     const modifier = document.createElement("button");
@@ -89,20 +91,22 @@ function creerNotification(joueur) {
 cartes.forEach((carte) => {
     carte.addEventListener("click", (event) => {
 
-        const joueur = event.currentTarget.querySelector("h3").textContent;
+        const idCurrent = event.currentTarget.id;
+        const idTarget = event.target.id;
 
-        paragraphe.textContent = `Joueur sélectionné : ${joueur}`;
+        paragraphe.textContent = `Joueur sélectionné : ${idCurrent}`;
+
+        console.log("Carte :", idCurrent);
+        console.log("Élément cliqué :", idTarget);
 
         // Changer le style de la carte
         carte.classList.toggle("selectionnee");
 
 
         // Ajouter une sélection
-        const notification = creerNotification(joueur);
+        const notification = creerNotification(idCurrent);
         conteneur.append(notification);
-        if (!panneau.classList.contains("masque")) {
-            afficherNotification(notification);
-        }
+        afficherNotification(notification);
 
         actualiserCompteur();
     });
@@ -119,7 +123,7 @@ conteneur.addEventListener("click", (event) => {
 
     if (event.target.closest(".btn-modifier")) {
         notification.querySelector("p").textContent =
-            `Sélection n° ${notification.dataset.numero} : ${notification.dataset.joueur} modifiée !`;
+            `Top n° ${notification.dataset.numero} : ${notification.dataset.joueur} modifiée !`;
         notification.animate(
             [
                 { transform: "translateX(0)", opacity: 1, offset: 0 },
@@ -177,14 +181,7 @@ champNom.addEventListener("change", () => {
     compteurChange.textContent = champNom.value.length;
 });
 
-// Déplacer la couleur avec le pointeur
-zoneCouleur.addEventListener("pointermove", (event) => {
-    const zone = zoneCouleur.getBoundingClientRect();
-    const positionX = event.clientX - zone.left;
-    zoneCouleur.style.setProperty("--position-x", positionX + "px");
-});
-
 // Afficher ou masquer l'historique
-bouton.addEventListener("click", () => {
-    panneau.classList.toggle("masque");
+bouton.addEventListener("click", (event) => {
+    console.log("Composant écouté :", event.currentTarget);
 });

@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ma sélection Chicago Bulls</title>
+    <title>Mon classement des Chicago Bulls</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <h1>Ma sélection Chicago Bulls</h1>
+    <h1>Mon classement des Chicago Bulls</h1>
     <p>Clique sur un joueur pour le sélectionner.</p>
 
     <section id="galerie">
@@ -33,24 +33,13 @@
     <p id="selection">Aucun joueur sélectionné</p>
 
     <div id="zone-couleur">
-        <h2>Historique des sélections</h2>
+        <h2>Classement</h2>
     </div>
 
     <div id="panneau">
-        <p id="compteur">Sélections présentes : 0</p>
+        <p id="compteur">Joueurs présents : 0</p>
         <div id="conteneur"></div>
     </div>
-
-    <button id="monBouton">Afficher / Masquer l'historique</button>
-
-    <form id="form-contact">
-        <label for="nom">Ton nom</label>
-        <input type="text" id="nom" name="nom">
-        <button type="submit">Valider</button>
-        <p class="cpt-input">Caractères pendant la saisie : <strong>0</strong></p>
-        <p class="cpt-change">Caractères en quittant le champ : <strong>0</strong></p>
-        <p id="message-formulaire" role="status"></p>
-    </form>
 
 </body>
 
