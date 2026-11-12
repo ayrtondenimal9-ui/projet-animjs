@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ma sélection Chicago Bulls</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Ma sélection Chicago Bulls</h1>
+    <p>Clique sur un joueur pour le sélectionner.</p>
+
+    <section id="galerie">
+        <div class="carte" id="Jordan">
+            <h3>Michael Jordan</h3>
+            <p>Numéro 23</p>
+        </div>
+
+        <div class="carte" id="Rose">
+            <h3>Derrick Rose</h3>
+            <p>Numéro 1</p>
+        </div>
+
+        <div class="carte" id="Pippen">
+            <h3>Scottie Pippen</h3>
+            <p>Numéro 33</p>
+        </div>
+    </section>
+
+    <p id="selection">Aucun joueur sélectionné</p>
+
+    <div id="zone-couleur">
+        <h2>Historique des sélections</h2>
+    </div>
+
+    <div id="panneau">
+        <p id="compteur">Sélections présentes : 0</p>
+        <div id="conteneur"></div>
+    </div>
+
+    <button id="monBouton">Afficher / Masquer l'historique</button>
+
+    <form id="form-contact">
+        <label for="nom">Ton nom</label>
+        <input type="text" id="nom" name="nom">
+        <button type="submit">Valider</button>
+        <p class="cpt-input">Caractères pendant la saisie : <strong>0</strong></p>
+        <p class="cpt-change">Caractères en quittant le champ : <strong>0</strong></p>
+        <p id="message-formulaire" role="status"></p>
+    </form>
+
+</body>
+
+</html>
